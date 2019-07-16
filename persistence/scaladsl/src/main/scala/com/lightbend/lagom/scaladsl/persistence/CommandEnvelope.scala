@@ -12,4 +12,8 @@ package com.lightbend.lagom.scaladsl.persistence
  * for power users in case of integration with Cluster Sharding
  * entities that are not implemented with [[PersistentEntity]].
  */
+/**
+  * @todo Should not work
+  * @body no
+  */
 final case class CommandEnvelope(entityId: String, payload: Any)

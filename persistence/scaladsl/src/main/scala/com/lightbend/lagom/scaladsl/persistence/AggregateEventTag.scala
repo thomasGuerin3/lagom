@@ -13,6 +13,10 @@ object AggregateEventTag {
    * retain the original tag when the class name is changed because
    * the tag is part of the store event data.
    */
+  /**
+    * @makeAnIssue Should work
+    * @body yes
+    */
   def apply[Event <: AggregateEvent[Event]: ClassTag](): AggregateEventTag[Event] = {
     val eventType = implicitly[ClassTag[Event]].runtimeClass.asInstanceOf[Class[Event]]
     new AggregateEventTag(eventType, eventType.getName)
@@ -22,6 +26,7 @@ object AggregateEventTag {
    * Factory method of [[AggregateEventTag]].
    */
   def apply[Event <: AggregateEvent[Event]: ClassTag](tag: String): AggregateEventTag[Event] =
+  //makeAnIssue could work
     new AggregateEventTag(implicitly[ClassTag[Event]].runtimeClass.asInstanceOf[Class[Event]], tag)
 
   /**
